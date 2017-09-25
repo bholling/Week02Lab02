@@ -24,6 +24,11 @@ public class MainPageServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String loggedout = request.getParameter("loggedout");
+        if(loggedout != null){
+            request.setAttribute("message", "Logged out. Thanks for visiting");
+            getServletContext().getRequestDispatcher("/WEB-INF/loginpage.jsp").forward(request, response);
+        }
  
     }
 
